@@ -30,9 +30,10 @@ def instagram(image, filter_lst):
 # Initialize the node with rospy
 rospy.init_node('instagram_thenuttynetter', anonymous=False)
 # Create publisher
-publisher = rospy.Publisher("topic/filter/compressed",CompressedImage,queue_size=1)
 
 filters = rospy.get_param("~filters", "nope")
+
+publisher = rospy.Publisher("topic/" +  filters.replace(":","_") + "/compressed",CompressedImage,queue_size=1)
 
 filter_lst = filters.split(":")
 
