@@ -37,7 +37,7 @@ for topic, msg, t in bag.read_messages():
 	if topic == topic_sel:
 		img = rgb_from_ros(msg)
 		img = instagram(img, filters)
-		msg = d8n_image_msg_from_cv_image(img, 'bgr8')
+		msg = d8_compressed_image_from_cv_image(img)
 		bag_out.write(topic=topic,msg=msg,t=t)
 
 
